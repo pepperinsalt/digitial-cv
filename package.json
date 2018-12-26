@@ -1,0 +1,34 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website",
+  "main": "src/js/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pecko95/Portfolio.git"
+  },
+  "keywords": [
+    "personal",
+    "portfolio",
+    "website"
+  ],
+  "author": "Petar Stevovski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pecko95/Portfolio/issues"
+  },
+  "homepage": "https://github.com/pecko95/Portfolio#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-babel-minify": "^0.5.0",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.11.0"
+  }
+}
