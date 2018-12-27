@@ -4,7 +4,7 @@ const glide = new Glide('.glide', {
     startAt: 0,
     perView: 1,
     autoplay: 5000,
-    hoverpause: true
+    hoverpause: false
 })
 
 glide.mount();
