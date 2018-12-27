@@ -16,13 +16,42 @@ $highlighted: "Montserrat Medium";
 
 // Custom values
 $center: translate(-50%, -50%);
-$mobileScreen: 500px;
+$mobileScreen500: 550px;
+$mobileScreen400: 400px;
+$mobileScreen350: 350px;
+$arrowsBreakPoint: 1300px;
+$arrowsDisappear: 700px;
 
-@mixin mobileScreen{
-    @media (max-width: #{$mobileScreen}) {
+@mixin arrowsBreakPoint {
+    @media (max-width: #{$arrowsBreakPoint}) {
         @content;
     }
 }
+
+@mixin arrowsDisappear {
+    @media (max-width: #{$arrowsDisappear}) {
+        @content;
+    }
+}
+
+@mixin mobileScreen500 {
+    @media (max-width: #{$mobileScreen500}) {
+        @content;
+    }
+}
+
+@mixin mobileScreen400 {
+    @media (max-width: #{$mobileScreen400}) {
+        @content;
+    }
+}
+
+@mixin mobileScreen350 {
+    @media (max-width: #{$mobileScreen350}) {
+        @content;
+    }
+}
+
 
 * {
     margin: 0;
@@ -98,7 +127,7 @@ nav {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 35px;
+    padding: 0px 35px;
 }
 
 // MAIN SECTION
@@ -107,12 +136,21 @@ nav {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    // margin: 15px 0 70px 0;
     height: 90vh;
-    // background-color: red;
 
     #main-left-side {
-        flex-basis: 40%;
+        flex-basis: 50%;
+
+        #resume {
+            height: 35px;
+            font-family: "Montserrat Medium";
+            letter-spacing: 1px;
+        }
+
+        #resume:hover {
+            background-color: color(textColor);
+            color: color(bgColor);
+        }
     }
 
     h1 {
@@ -128,11 +166,6 @@ nav {
         margin: 5px 0 20px 0;
     }
 
-    a:hover {
-        color: color(highlightColor);
-        width: 115px;
-    }
-
     // RIGHT SIDE
     #main-right-side {
         // flex-basis: 10%;
@@ -144,16 +177,23 @@ nav {
 
 // SKILLS SECTION
 #skills {
+    // min-height: 450px;
     margin: 15px 0px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     h1 {
         font-family: $title;
         font-size: 50px;
+        color: color(highlightColor);
     }
 
     p {
         margin: 15px 0px;
+        color: color(textColor);
     }
     
 }
@@ -161,40 +201,84 @@ nav {
 
 // PROJECTS SLIDER
 .glide {
+    margin-top: 150px;
     text-align: center;
 
     // SLIDER BULLET POINTS
-    .bullet__points{
-        margin: 25px 0;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+    .glide__bullet {
+        width: 25px;
+        height: 5px;
+        border: none;
+        border-radius: 2px;
+        background-color: color(textColor);
+        outline: none;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
 
-        .glide__bullet {
-            width: 30px;
-            height: 5px;
-            border: none;
-            border-radius: 2px;
-            background-color: color(textColor);
-            outline: none;
-            cursor: pointer;
+    .glide__bullet--active {
+        height: 7px;
+        background-color: color(highlightColor);
+    }
+
+
+    h1 {
+        font-family: $title;
+        font-size: 50px;
+        color: color(highlightColor);
+    }
+
+    p {
+        margin: 15px 0;
+        color: color(textColor);
+    }
+
+    #more__projects {
+        margin: 50px 0 0 0;
+        padding: 5px;
+    }
+}
+
+.glide__track {
+    position: relative;
+    // GLIDE ARROWS
+    .glide__arrows {
+
+        i {
+            display: inline-block;
+            font-size: 80px;
             transition: 0.3s ease;
         }
 
-        .glide__bullet--active {
-            height: 7px;
-            background-color: color(highlightColor);
+        i:hover {
+            text-shadow: 0px 5px #04fbff60;
+        }
+
+        @include arrowsDisappear {
+            display: none;
+        }
+
+        .glide__arrow--left {
+            background-color: transparent;
+            position: absolute;
+            top: 30%;
+            left: 25%;
+    
+            @include arrowsBreakPoint {
+                left: 0;
+            }
+        }
+        .glide__arrow--right {
+            background-color: transparent;
+            position: absolute;
+            top: 30%;
+            right: 25%;
+    
+            @include arrowsBreakPoint {
+                right: 0;
+            }
         }
     }
-
-    // GLIDE ARROWS
-    // .glide__arrow--left {
-    //     position: absolute;
-    //     left: 10%;
-    //     top: 35%;
-    //     transform: translateY(-35%);
-    //     font-size: 60px;
-    // }
 }
 
 .glide__slide {
@@ -208,13 +292,28 @@ nav {
         color: color(highlightColor);
         display: flex;
         align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 10px 0px;
+
+        @include mobileScreen400 {
+            font-size: 20px;
+        }
+
+        @include mobileScreen350 {
+            font-size: 18px;
+        }
+
+        img {
+            margin: 0px 5px;
+        }
     }
 
     // Project image
     .project__image {
         width: 500px;
 
-        @include mobileScreen {
+        @include mobileScreen500 {
             width: 100%;
         }
     }
@@ -243,6 +342,33 @@ nav {
 // CONTACT CONTAINER
 #contact {
     margin: 50px 0;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-family: $title;
+        font-size: 50px;
+        color: color(highlightColor);
+    }
+
+    p {
+        width: 80%;
+    }
+
+    #message {
+        margin: 20px 0;
+        text-align: center;
+        width: 200px;
+    }
+
+    #message:hover {
+        background-color: color(textColor);
+        color: color(bgColor);
+    }
 }
 @keyframes test{
     0% {
@@ -259,4 +385,29 @@ nav {
     }
 }
 
+/* MATERIAL DESIGN ICONS CSS */
+.material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;  /* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+  
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+  
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+  
+	/* Support for IE. */
+	font-feature-settings: 'liga';
+}
 
