@@ -1,5 +1,262 @@
-$test: "#e13023";
+// Colors
+$colors: (
+    bgColor: #000026,
+    textColor: #04fbff,
+    highlightColor: #f5f5f5
+);
+
+@function color($colorName) {
+    @return map-get($colors, $colorName);
+}
+
+// Fonts
+$title: "Montserrat Black";
+$text: "Montserrat Regular";
+$highlighted: "Montserrat Medium";
+
+// Custom values
+$center: translate(-50%, -50%);
+$mobileScreen: 500px;
+
+@mixin mobileScreen{
+    @media (max-width: #{$mobileScreen}) {
+        @content;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    background-color: $test;
+    background-color: color(bgColor);
+    color: color(textColor);
+    font-family: $text;
+
+    // Links
+    a {
+        text-decoration: none;
+        color: color(textColor);
+        background-color: color(bgColor);
+        transition: 0.2s ease;
+    }
+    a:hover {
+        color: color(highlightColor);
+    }
+
+    img {
+        transition: 0.3s ease;
+    }
+
+    // Link buttons
+    .btn-link {
+        width: 110px;
+        height: 30px;
+        padding: 3px;
+        border: 1px solid color(textColor);
+        border-radius: 1px;
+        font-size: 14px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        * {
+            margin: 0px 5px;
+        }
+    }
+
+    // List items
+    ul {
+        list-style-type: none;
+        display: flex;
+
+        li {
+            margin: 0 5px;
+            padding: 3px;
+        }
+    }
+
+    // Highlighted items
+    .highlighted {
+        color: color(highlightColor);
+        font-family: $highlighted;
+    }
 }
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+}
+
+// CONTAINER FOR THE SECTIONS
+.container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 35px;
+}
+
+// MAIN SECTION
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    // margin: 15px 0 70px 0;
+    height: 90vh;
+    // background-color: red;
+
+    #main-left-side {
+        flex-basis: 40%;
+    }
+
+    h1 {
+        font-family: $title;
+        font-size: 55px;
+
+        .highlighted {
+            font-family: $title;
+        }
+    }
+
+    p {
+        margin: 5px 0 20px 0;
+    }
+
+    a:hover {
+        color: color(highlightColor);
+        width: 115px;
+    }
+
+    // RIGHT SIDE
+    #main-right-side {
+        // flex-basis: 10%;
+        transform: scale(0);
+        transform-origin: center;
+        animation: test 0.7s ease forwards;
+    }
+}
+
+// SKILLS SECTION
+#skills {
+    margin: 15px 0px;
+    text-align: center;
+
+    h1 {
+        font-family: $title;
+        font-size: 50px;
+    }
+
+    p {
+        margin: 15px 0px;
+    }
+    
+}
+
+
+// PROJECTS SLIDER
+.glide {
+    text-align: center;
+
+    // SLIDER BULLET POINTS
+    .bullet__points{
+        margin: 25px 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .glide__bullet {
+            width: 30px;
+            height: 5px;
+            border: none;
+            border-radius: 2px;
+            background-color: color(textColor);
+            outline: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .glide__bullet--active {
+            height: 7px;
+            background-color: color(highlightColor);
+        }
+    }
+
+    // GLIDE ARROWS
+    // .glide__arrow--left {
+    //     position: absolute;
+    //     left: 10%;
+    //     top: 35%;
+    //     transform: translateY(-35%);
+    //     font-size: 60px;
+    // }
+}
+
+.glide__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h2 {
+        font-family: $title;
+        color: color(highlightColor);
+        display: flex;
+        align-items: center;
+    }
+
+    // Project image
+    .project__image {
+        width: 500px;
+
+        @include mobileScreen {
+            width: 100%;
+        }
+    }
+
+    .project__info {
+        max-width: 500px;
+        text-align: center;
+
+        * {
+            margin: 10px 0;
+        }
+
+        .project__links {
+            display: flex;
+            justify-content: space-evenly;
+            font-family: "Montserrat SemiBold";
+
+            a:hover {
+                background-color: color(textColor);
+                color: color(bgColor);
+            }
+        }
+    }
+}
+
+// CONTACT CONTAINER
+#contact {
+    margin: 50px 0;
+}
+@keyframes test{
+    0% {
+        transform: scale(0)
+    }
+    60% {
+        transform: scale(1)
+    }
+    80% {
+        transform: scale(0.9)
+    }
+    100% {
+        transform: scale(1)
+    }
+}
+
+

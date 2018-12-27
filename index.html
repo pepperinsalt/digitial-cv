@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Petar Stevovski | Portfolio</title>
+    <link rel="stylesheet" href="./dist/css/glide.core.min.css">
     <link rel="stylesheet" href="./dist/css/main.css">
 </head>
 <body>
     <!-- QUOTE -->
-    <h3 id="quote">Who dares, wins - Sir David Stirling</h3>
+    <!-- <h3 id="quote">Who dares, wins - Sir David Stirling</h3> -->
 
     <!-- NAVIGATION LINKS / MENU -->
     <nav>
@@ -29,20 +30,18 @@
                 <p>I'm a self-taught web developer from Macedonia, currently focusing on front-end, with a goal to become full-stack developer. Check out some of my projects down below. Currently looking for an <span class="highlighted">internship</span> or an <span class="highlighted">entry</span> level position.</p>
 
                 <!-- RESUME DOWNLOAD BUTTON -->
-                <a id="resume" class="btn-link"><img src="./dist/logos/download.svg" alt="Download" width="18px" height="18px"> resume</a>
+                <a id="resume" href="#" class="btn-link"><img src="./dist/logos/download.svg" alt="Download" width="18px" height="18px"> resume</a>
             </div>
             <!-- RIGHT SIDE -->
             <div class="main-side" id="main-right-side">
-                <img src="./dist/images/Laptop_1.svg" alt="laptop" title="Laptop" width="250px" height="250px">
+                <img src="./dist/logos/Laptop_1.svg" alt="laptop" title="Laptop" width="250px" height="250px">
             </div>
         </section>
 
         <!-- SKILLS SECTION -->
         <section id="skills">
-            <div class="title">
-                <h1>WHAT DO I USE ?</h1>
-                <p>I have a working experience with the following technologies:</p>
-            </div>
+            <h1>WHAT DO I USE ?</h1>
+            <p>I have a working experience with the following technologies:</p>
 
             <!-- TECH ICONS -->
             <div id="icons">
@@ -55,114 +54,131 @@
                 <img src="./dist/logos/photoshop.svg" alt="Photoshop" width="40px" height="40px">
             </div>
 
-            <p>Currently learning <span class="highlighted">React</span>.</p>
+            <p>Currently learning <span class="highlighted">React.</span></p>
         </section>
 
+        
         <!-- PROJECTS SECTION -->
-        <section id="projects">
-            <div class="title">
-                <h1>PROJECTS</h1>
-                <p>Some of the projects I have created so far:</p>
+        <section class="glide">
+            <h1>PROJECTS</h1>
+            <p>Some of the projects I have created so far:</p>
+
+            <div class="glide__track" data-glide-el="track">
+                <div class="glide__slides">
+
+                    <!-- EARTH DEFENSE PROJECT -->
+                    <div class="glide__slide">
+                        <h2>EARTH DEFENSE <img src="./dist/logos/game-console.svg" alt="Game console" title="Game Console" width="32px" height="32px"></h2>
+
+                        <img class="project__image" src="./dist/images/earth-defense-ss.png" alt="Earth Defense" title="Earth Defense project">
+                        <div class="project__info">
+                            <!-- TECH USED -->
+                            <div class="project__tech">
+                                <img src="./dist/logos/html5.svg" alt="HTML5" title="HTML 5" width="32px" height="32px">
+                                <img src="./dist/logos/javascript_1.svg" alt="JavaScript" title="JavaScript" width="32px" height="32px">
+                                <img src="./dist/logos/sass.svg" alt="Sass" title="Sass" width="32px" height="32px">
+                            </div>
+
+                            <p>Survive as long as you can and defend the Earth from the aliens, before the inevitable happens!</p>
+
+                            <!-- LINKS -->
+                            <div class="project__links">
+                                <a href="https://pecko95.github.io/EarthDefense" target="_blank" rel="noopener" class="btn-link">DEMO</a>
+                                <a href="https//github.com/pecko95/EarthDefense" target="_blank" rel="noopener" class="btn-link">CODE</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WATCH SOMETHING PROJECT -->
+                    <div class="glide__slide">
+                        <h2>WATCHSOMETHING <img src="./dist/logos/popcorn.svg" alt="Popcorn" title="Popcorn" width="32px" height="32px"></h2>
+
+                        <img class="project__image" src="./dist/images/watch-something-ss.png" alt="WatchSomething" title="Watch Something project">
+                        <div class="project__info">
+                            <!-- TECH USED -->
+                            <div class="project__tech">
+                                <img src="./dist/logos/html5.svg" alt="HTML5" title="HTML 5" width="32px" height="32px">
+                                <img src="./dist/logos/css3.svg" alt="CSS 3" title="CSS 3" width="32px" height="32px">
+                                <img src="./dist/logos/javascript_1.svg" alt="JavaScript" title="JavaScript" width="32px" height="32px">
+                                <img src="./dist/logos/photoshop.svg" alt="Photoshop" title="Photoshop" width="32px" height="32px">
+                            </div>
+
+                            <p>Find a movie or tv show to watch, with many searching options available and get detailed info for them. Save your favorites, or store them in a watchlist for later! Uses <span class="highlighted">themoviedb</span> API.</p>
+
+                            <!-- LINKS -->
+                            <div class="project__links">
+                                <a href="https://pecko95.github.io/WatchSomething" target="_blank" rel="noopener" class="btn-link">DEMO</a>
+                                <a href="https//github.com/pecko95/WatchSomething" target="_blank" rel="noopener" class="btn-link">CODE</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WEATHER APP PROJECT -->
+                    <div class="glide__slide">
+                        <h2>WEATHER APP <img src="./dist/logos/cloudy.svg" alt="Clouds" title="Clouds" width="32px" height="32px"></h2>
+
+                        <img class="project__image" src="./dist/images/weather-app-ss.png" alt="Weather App" title="Weather app project">
+                        <div class="project__info">
+                            <!-- TECH USED -->
+                            <div class="project__tech">
+                                <img src="./dist/logos/html5.svg" alt="HTML5" title="HTML 5" width="32px" height="32px">
+                                <img src="./dist/logos/sass.svg" alt="Sass" title="Sass" width="32px" height="32px">
+                                <img src="./dist/logos/javascript_1.svg" alt="JavaScript" title="JavaScript" width="32px" height="32px">
+                                <img src="./dist/logos/photoshop.svg" alt="Photoshop" title="Photoshop" width="32px" height="32px">
+                            </div>
+
+                            <p>Weather applcation using <span class="highlighted">openweather</span> API. Get the current weather for a city, or get a forecast for the next 5 days.</p>
+
+                            <!-- LINKS -->
+                            <div class="project__links">
+                                <a href="https://pecko95.github.io/WeatherApp" target="_blank" rel="noopener" class="btn-link">DEMO</a>
+                                <a href="https//github.com/pecko95/WeatherApp" target="_blank" rel="noopener" class="btn-link">CODE</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- SCRAPPY BIRD PROJECT -->
+                    <div class="glide__slide">
+                        <h2>SCRAPPY BIRD<img src="./dist/logos/game-console.svg" alt="Game console" title="Game console" width="32px" height="32px"></h2>
+
+                        <img class="project__image" src="./dist/images/scrappy-bird-ss.png" alt="Scrappy Bird" title="Scrappy Bird project">
+                        <div class="project__info">
+                            <!-- TECH USED -->
+                            <div class="project__tech">
+                                <img src="./dist/logos/html5.svg" alt="HTML5" title="HTML 5" width="32px" height="32px">
+                                <img src="./dist/logos/sass.svg" alt="Sass" title="Sass" width="32px" height="32px">
+                                <img src="./dist/logos/javascript_1.svg" alt="JavaScript" title="JavaScript" width="32px" height="32px">
+                                <img src="./dist/logos/photoshop.svg" alt="Photoshop" title="Photoshop" width="32px" height="32px">
+                            </div>
+
+                            <p>Remake of the Flappy Bird game.</p>
+
+                            <!-- LINKS -->
+                            <div class="project__links">
+                                <a href="https://pecko95.github.io/ScrappyBird" target="_blank" rel="noopener" class="btn-link">DEMO</a>
+                                <a href="https//github.com/pecko95/ScrappyBird" target="_blank" rel="noopener" class="btn-link">CODE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDER CONTROLS -->
+                <div class="glide__arrows" data-glide-el="controls">
+                    <a href="#" class="glide__arrow glide__arrow--left" data-glide-dir="<"><</a>
+                    <a href="#" class="glide__arrow glide__arrow--right" data-glide-dir=">">></a>
+                </div>
             </div>
-
-            <!-- PROJECTS -->
-            <div id="projects_container">
-                <!-- EARTH DEFENSE GAME -->
-                <div id="earth-defense" class="project-card">
-                    <img src="./dist/images/earth-defense-ss.png" alt="Earth Defense" width="440px" height="230px">
-
-                    <div class="project-info">
-                        <h2>EARTH DEFENSE <img src="./dist/logos/game-console.svg" alt="Arcade" title="Arcade game" title="Earth Defense project" width="26px" height="26px"></h2>
-                        <p>In this game you must defend the Earth from the aliens. Kill as many of them as you can before the inevitable happens. Save us all!</p>
-                        <div class="created">
-                            <!-- CREATED WITH -->
-                            <p class="highlighted">Created with:</p>
-                                <img src="./dist/logos/html5.svg" alt="HTML5" width="40px" height="40px">
-                                <img src="./dist/logos/sass.svg" alt="Sass" width="40px" height="40px">
-                                <img src="./dist/logos/javascript_1.svg" alt="JavaScript" width="40px" height="40px">
-                        </div>
-
-                        <!-- SHOWCASE -->
-                        <div class="showcase">
-                            <a class="btn-link" href="https://pecko95.github.io/EarthDefense" target="_blank" rel="noopener" title="Live demo">live</a>
-                            <a class="btn-link" href="https://github.com/pecko95/EarthDefense" target="_blank" rel="noopener" title="GitHub repository">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- WATCH SOMETHING -->
-                <div id="watch-something" class="project-card">
-                    <img src="./dist/images/watch-something-ss.png" alt="Watch Something" title="Watch Something project" width="440px" height="230px">
-
-                    <div class="project-info">
-                        <h2>WATCH SOMETHING <img src="./dist/logos/popcorn.svg" alt="Popcorn bucket" title="Popcorn bucket" width="26px" height="26px"></h2>
-                        <p>Find a movie or tv show to watch, with many searching options, and get info and suggestions for them. Save your favorites, or add some to a watchlist for later. Uses <span class="highlighted">themoviedb</span> API.</p>
-                        <div class="created">
-                            <!-- CREATED WITH -->
-                            <p class="highlighted">Created with:</p>
-                                <img src="./dist/logos/html5.svg" alt="HTML5" width="40px" height="40px">
-                                <img src="./dist/logos/css3.svg" alt="CSS3" width="40px" height="40px">
-                                <img src="./dist/logos/javascript_1.svg" alt="JavaScript" width="40px" height="40px">
-                                <img src="./dist/logos/photoshop.svg" alt="Photoshop" width="40px" height="40px">
-                        </div>
-
-                        <!-- SHOWCASE -->
-                        <div class="showcase">
-                            <a class="btn-link" href="https://pecko95.github.io/WatchSomething" target="_blank" rel="noopener" title="Live demo">live</a>
-                            <a class="btn-link" href="https://github.com/pecko95/WatchSomething" target="_blank" rel="noopener" title="GitHub repository">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- WEATHER APP -->
-                <div id="weather-app" class="project-card">
-                    <img src="./dist/images/weather-app-ss.png" alt="Weather application" title="Weather app project" width="440px" height="230px">
-
-                    <div class="project-info">
-                        <h2>WEATHER APP <img src="./dist/logos/cloudy.svg" alt="Arcade" title="Cloudy" width="40px" height="40px"></h2>
-                        <p>Weather application using <span class="highlighted">openweather</span> API. Get the current weather in a city, or get a forecast for the next 5 days.</p>
-                        <!-- CREATED WITH -->
-                        <div class="created">
-                            <p class="highlighted">Created with:</p>
-                                <img src="./dist/logos/html5.svg" alt="HTML5" width="40px" height="40px">
-                                <img src="./dist/logos/sass.svg" alt="Sass" width="40px" height="40px">
-                                <img src="./dist/logos/javascript_1.svg" alt="JavaScript" width="40px" height="40px">
-                                <img src="./dist/logos/photoshop.svg" alt="Photoshop" width="40px" height="40px">
-                        </div>
-
-                        <!-- SHOWCASE -->
-                        <div class="showcase">
-                            <a class="btn-link" href="https://pecko95.github.io/WeatherApp" target="_blank" rel="noopener" title="Live demo">live</a>
-                            <a class="btn-link" href="https://github.com/pecko95/WeatherApp" target="_blank" rel="noopener" title="GitHub repository">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SCRAPPY BIRD GAME -->
-                <div id="scrappy-bird" class="project-card">
-                    <img src="./dist/images/scrappy-bird-ss.png" alt="Scrappy Bird game" title="Scrappy Bird project" width="440px" height="230px">
-
-                    <div class="project-info">
-                        <h2>SCRAPPY BIRD <img src="./dist/logos/game-console.svg" alt="Arcade" title="Arcade game" width="26px" height="26px"></h2>
-                        <p>Remake of the Flappy Bird game. Playable both on desktop & mobile browsers.</p>
-                        <!-- CREATED WITH -->
-                        <div class="created">
-                            <p class="highlighted">Created with:</p>
-                                <img src="./dist/logos/html5.svg" alt="HTML5" width="40px" height="40px">
-                                <img src="./dist/logos/sass.svg" alt="Sass" width="40px" height="40px">
-                                <img src="./dist/logos/javascript_1.svg" alt="JavaScript" width="40px" height="40px">
-                                <img src="./dist/logos/photoshop.svg" alt="Photoshop" width="40px" height="40px">
-                        </div>
                         
-                        <!-- SHOWCASE -->
-                        <div class="showcase">
-                            <a class="btn-link" href="https://pecko95.github.io/WeatherApp" target="_blank" rel="noopener" title="Live demo">live</a>
-                            <a class="btn-link" href="https://github.com/pecko95/WeatherApp" target="_blank" rel="noopener" title="GitHub repository">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <p>Be sure to checkout my <a href="https://github.com/pecko95" class="highlighted" target="_blank" rel="noopener">GitHub</a> profile for more projects.</p>
+
+            <!-- SLIDER BULLET POINTS -->
+            <div class="bullet__points" data-glide-el="controls[nav]">
+                <button class="glide__bullet" data-glide-dir="=0"></button>
+                <button class="glide__bullet" data-glide-dir="=1"></button>
+                <button class="glide__bullet" data-glide-dir="=2"></button>
+                <button class="glide__bullet" data-glide-dir="=3"></button>
+                <button class="glide__bullet" data-glide-dir="=4"></button>
+            </div>
         </section>
 
         <!-- CONTACT SECTION -->
@@ -195,6 +211,7 @@
 
 
     <!-- SCRIPT LINK -->
+    <script src="./dist/js/glide.min.js"></script>
     <script src="./dist/js/main.js"></script>
 </body>
 </html>
