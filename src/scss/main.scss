@@ -182,6 +182,8 @@ nav {
     margin-right: 25px;
     transform: translateY(-50px);
     opacity: 0;
+    z-index: 2;
+    transition: 3s ease;
 
     a {
         background: none;
@@ -200,7 +202,6 @@ nav.display__nav {
 nav.active__nav {
     transform: translateY(0px);
     opacity: 1;
-    transition: 2s ease;
 }
 
 // CONTAINER FOR THE SECTIONS
@@ -602,13 +603,17 @@ nav.active__nav {
     // FORM
     #contact-form {
         margin: 20px 0;
-        width: 300px;
+        width: 400px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
 
         text-align: left;
+
+        @include responsive400 {
+            width: 90%;
+        }
 
         input {
             width: 100%;
@@ -707,6 +712,7 @@ footer {
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: "social createdBy pageLinks";
     background-color: #000015;
+    border-top: 1px solid #04fbff30;
 
     a {
         background: transparent;
