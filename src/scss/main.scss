@@ -16,6 +16,7 @@ $highlighted: "Montserrat Medium";
 
 // Custom values
 $center: translate(-50%, -50%);
+$responsive600: 600px;
 $mobileScreen500: 550px;
 $mobileScreen400: 400px;
 $mobileScreen350: 350px;
@@ -34,11 +35,18 @@ $arrowsDisappear: 700px;
     }
 }
 
+@mixin responsive600 {
+    @media (max-width: #{$responsive600}) {
+        @content;
+    }
+}
+
 @mixin mobileScreen500 {
     @media (max-width: #{$mobileScreen500}) {
         @content;
     }
 }
+
 
 @mixin mobileScreen400 {
     @media (max-width: #{$mobileScreen400}) {
@@ -521,11 +529,144 @@ nav.active__nav {
         background-color: color(textColor);
         color: color(bgColor);
     }
+
+    // FORM
+    #contact-form {
+        margin: 20px 0;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        text-align: left;
+
+        input {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: none;
+            border-bottom: 1px solid color(textColor);
+            background: none;
+            outline: none;
+            font-family: $text;
+            color: color(highlightColor);
+            transition: 0.5s ease;
+        }
+
+        input:focus {
+            border-bottom: 2px solid color(textColor)
+        }
+
+        input::placeholder {
+            font-family: $text;
+            color: color(textColor);
+        }
+
+        textarea {
+            width: 100%;
+            height: 80px;
+            margin: 35px 0 10px 0;
+            padding: 5px;
+            border: 1px solid color(textColor);
+            background: none;
+            outline: none;
+            font-family: $text;
+            color: color(highlightColor);
+            text-decoration: none;
+            transition: 0.5s ease;
+        }
+
+        textarea::placeholder {
+            font-family: $text;
+            color: color(textColor);
+        }
+
+        textarea:focus {
+            border: 2px solid color(textColor);
+        }
+
+        button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            width: 100%;
+            padding: 5px;
+            border: 1px solid color(textColor);
+            background: color(bgColor);
+            color: color(textColor);
+            font-family: "Montserrat Medium";
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        button:hover {
+            background: color(textColor);
+            color: color(bgColor);
+        }
+    }
+
+    // Mail error
+    #mail--error {
+        color: #e1302a;
+        font-family: $text;
+        font-size: 14px;
+        text-align: center;
+    }
 }
 
 #contact.contact--active {
     opacity: 1;
     transform: translateY(0px);
+}
+
+// FOOTER
+footer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "social createdBy pageLinks";
+    background-color: #000015;
+
+    a {
+        background: transparent;
+    }
+
+    .footer--section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin: 8px 0;
+    }
+
+    .social--links {
+        justify-content: space-around;
+        grid-area: social;
+    }
+
+    #created--by {
+        grid-area: createdBy;
+        font-size: 12px;
+        align-self: flex-end;
+    }
+
+    #page--links {
+        grid-area: pageLinks;
+    }
+
+    @include responsive600 {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "pageLinks"
+        "social"
+        "createdBy";
+
+        .social--links {
+            margin: 25px 0;
+        }
+    }
 }
 
 // CUSTOM SCROLL BAR
