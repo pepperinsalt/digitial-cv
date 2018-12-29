@@ -189,23 +189,33 @@
         <section id="contact">
             <h1>CONTACT</h1>
             <p>If you liked some of my projects and the work I've done so far, please feel free to contact me. I'm currently looking for <span class="highlighted">internship</span> or an <span class="highlighted">entry</span> level position.</p>
-            <a class="btn-link" href="#" id="message">send a message <i class="material-icons">email</i></a>
+
+            <!-- FORM TEST -->
+            <form id="contact-form">
+                <input type="hidden" name="contact_number">
+                <input type="text" id="name_input" name="user_name" placeholder="Your name..." autocomplete="off">
+                <input type="text" id="subject_input" name="mail_subject" placeholder="Subject..." autocomplete="off">
+                <input type="email" id="email_input" name="user_email" placeholder="Your email address..." autocomplete="off">
+                <textarea name="text" id="message_input" spellcheck="false" placeholder="Your message..."></textarea>
+                <button type="submit" id="submitBtn">Send message <i class="material-icons">email</i></button>
+            </form>
+            <p id="mail--error"></p>
         </section>
 
         <!-- FOOTER SECTION -->
         <footer>
             <!-- LINKS TO SOCIAL MEDIA -->
-            <div class="social-links">
+            <div class="social--links footer--section">
                 <a href="https://github.com/pecko95" target="_blank" rel="noopener"><img src="./dist/logos/github.svg" alt="GitHub" title="GitHub" width="32px" height="32px"></a>
                 <a href="https://stackoverflow.com/users/9653486/petar" target="_blank" rel="noopener"><img src="./dist/logos/stack-overflow.svg" alt="StackOverflow" title="Stack Overflow" width="32px" height="32px"></a>
                 <a href="https://www.reddit.com/user/nuclearmkd" target="_blank" rel="noopener"><img src="./dist/logos/reddit-alien.svg" alt="Reddit" title="Reddit" width="32px" height="32px"></a>
             </div>
 
             <!-- CREATED BY -->
-            <p>Petar Stevovski &copy;  2019</p>
+            <p id="created--by" class="footer--section">Petar Stevovski &copy;  2019</p>
 
             <!-- PAGE LINKS -->
-            <ul>
+            <ul id="page--links" class="footer--section">
                 <li><a href="#" class="about">about</a></li>
                 <li><a href="#" class="projects">projects</a></li>
                 <li><a href="#" class="contact">contact</a></li>
@@ -216,6 +226,7 @@
 
     <!-- SCRIPT LINK -->
     <script src="./dist/js/glide.min.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
     <script src="./dist/js/main.js"></script>
 </body>
 </html>
