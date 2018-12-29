@@ -39,7 +39,15 @@ document.getElementById('contact-form').addEventListener('submit', function(even
         emailjs.send('contact_service', 'contact_form', templateParams)
         .then( () => {
             // If successfull
-            submitBtn.innerHTML = `Message Sent! <i class="material-icons">check_circle_outline</i>`;
+            submitBtn.innerHTML = 'Message Sent! <i class="material-icons">check_circle_outline</i>';
+            name.value = '';
+            email.value = '';
+            subject.value = '';
+            message.value = '';
+
+            setTimeout(() => {
+                submitBtn.innerHTML = 'Send message <i class="material-icons">email</i></button>'
+            }, 2000);
         })
         .catch(err => {
             // If it failed

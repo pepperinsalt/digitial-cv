@@ -671,6 +671,7 @@ nav.active__nav {
             background: color(bgColor);
             color: color(textColor);
             font-family: "Montserrat Medium";
+            outline: none;
             cursor: pointer;
             transition: 0.2s ease;
         }

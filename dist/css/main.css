@@ -413,6 +413,7 @@ nav.active__nav {
       background: #000026;
       color: #04fbff;
       font-family: "Montserrat Medium";
+      outline: none;
       cursor: pointer;
       transition: 0.2s ease; }
     #contact #contact-form button:hover {
