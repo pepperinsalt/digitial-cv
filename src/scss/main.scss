@@ -303,10 +303,9 @@ nav.active__nav {
 
     // RIGHT SIDE
     #main-right-side {
-        // flex-basis: 10%;
         transform: scale(0);
         transform-origin: center;
-        animation: test 0.7s ease forwards;
+        animation: laptopAnimation 0.7s ease forwards;
     }
 
     // Mouse scroll animation
@@ -670,7 +669,7 @@ nav.active__nav {
             border: 1px solid color(textColor);
             background: color(bgColor);
             color: color(textColor);
-            font-family: "Montserrat Medium";
+            font-family: $highlighted;
             outline: none;
             cursor: pointer;
             transition: 0.2s ease;
@@ -767,7 +766,7 @@ footer {
 }
 
 
-@keyframes test{
+@keyframes laptopAnimation{
     0% {
         transform: scale(0)
     }
@@ -780,32 +779,6 @@ footer {
     100% {
         transform: scale(1)
     }
-}
-
-/* MATERIAL DESIGN ICONS CSS */
-.material-icons {
-	font-family: 'Material Icons';
-	font-weight: normal;
-	font-style: normal;
-	font-size: 24px;  /* Preferred icon size */
-	display: inline-block;
-	line-height: 1;
-	text-transform: none;
-	letter-spacing: normal;
-	word-wrap: normal;
-	white-space: nowrap;
-	direction: ltr;
-  
-	/* Support for all WebKit browsers. */
-	-webkit-font-smoothing: antialiased;
-	/* Support for Safari and Chrome. */
-	text-rendering: optimizeLegibility;
-  
-	/* Support for Firefox. */
-	-moz-osx-font-smoothing: grayscale;
-  
-	/* Support for IE. */
-	font-feature-settings: 'liga';
 }
 
 @keyframes circleTest{
@@ -846,4 +819,31 @@ footer {
     100% {
         opacity: 0;
     }
+}
+
+
+/* MATERIAL DESIGN ICONS CSS */
+.material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;  /* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+  
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+  
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+  
+	/* Support for IE. */
+	font-feature-settings: 'liga';
 }
