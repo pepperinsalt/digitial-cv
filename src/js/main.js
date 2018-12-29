@@ -82,11 +82,11 @@ const skillsYPos = skills.getBoundingClientRect().y - 250;
 const glideSection = document.querySelector(".glide");
 const glideYPos = glideSection.getBoundingClientRect().y - 250;
 const contact = document.querySelector("#contact");
-const contactYPos = contact.getBoundingClientRect().y - 500;
+const contactYPos = contact.getBoundingClientRect().y;
 
 function hideScroll() {
     seconds = 0;
-    console.log(contactYPos);
+    console.log(window.pageYOffset);
 
     if(mouseScroll.classList.contains('active__mouse--scroll')) {
         mouseScroll.classList.remove('active__mouse--scroll');
@@ -97,17 +97,17 @@ function hideScroll() {
     }
 
     // Show skills section
-    if(window.pageYOffset >= skillsYPos) {
+    if(window.pageYOffset >= skillsYPos || window.pageYOffset >= 400) {
         skills.classList.add('skills--active');
     }
     
     // Show projects section
-    if (window.pageYOffset >= glideYPos) {
+    if (window.pageYOffset >= glideYPos || window.pageYOffset >= 700) {
         glideSection.classList.add('glide--active');
     }
 
     // Show contact section
-    if(window.pageYOffset >= contactYPos) {
+    if(window.pageYOffset >= 1400) {
         contact.classList.add('contact--active');
         console.log('contact');
     }
@@ -131,21 +131,33 @@ function displayElements() {
     }, 50);
 }
 
-const projectsLink = document.querySelector("#projects_top");
-projectsLink.addEventListener("click", () => {
+const projectsLink = document.querySelectorAll(".projects");
+projectsLink.forEach(project => project.addEventListener("click", e => {
     window.scroll({
         top: 900,
         left: 0,
         behavior: 'smooth'
-    });
-})
-const contactLink = document.querySelector("#contact_top");
-contactLink.addEventListener("click", () => {
+    })
+    e.preventDefault();
+}))
+
+const contactLink = document.querySelectorAll(".contacts");
+contactLink.forEach(contact => contact.addEventListener("click", e => {
     window.scroll({
-        top:1350,
+        top:1500,
         left: 0,
         behavior: 'smooth'
     })
-})
+    e.preventDefault();
+}))
 
+const aboutLink = document.querySelector(".about");
+aboutLink.addEventListener("click", e => {
+    window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    })
+    e.preventDefault();
+})
 
