@@ -10,18 +10,23 @@ $colors: (
 }
 
 // Fonts
-$title: "Montserrat Black";
+$textLight: "Montserrat Light";
 $text: "Montserrat Regular";
 $highlighted: "Montserrat Medium";
+$textSemiBold: "Montserrat SemiBold";
+$title: "Montserrat Black";
 
 // Custom values
 $center: translate(-50%, -50%);
-$responsive600: 600px;
-$mobileScreen500: 550px;
-$mobileScreen400: 400px;
-$mobileScreen350: 350px;
+
+// Querries for responsiveness
+$responsive1920: 1920px;
 $arrowsBreakPoint: 1300px;
 $arrowsDisappear: 700px;
+$responsive600: 600px;
+$responsive550: 550px;
+$responsive400: 400px;
+$responsive350: 350px;
 
 @mixin arrowsBreakPoint {
     @media (max-width: #{$arrowsBreakPoint}) {
@@ -35,27 +40,33 @@ $arrowsDisappear: 700px;
     }
 }
 
+@mixin responsive1920 {
+    @media (min-width: #{$responsive1920}) {
+        @content;
+    }
+}
+
 @mixin responsive600 {
     @media (max-width: #{$responsive600}) {
         @content;
     }
 }
 
-@mixin mobileScreen500 {
-    @media (max-width: #{$mobileScreen500}) {
+@mixin responsive550 {
+    @media (max-width: #{$responsive550}) {
         @content;
     }
 }
 
 
-@mixin mobileScreen400 {
-    @media (max-width: #{$mobileScreen400}) {
+@mixin responsive400 {
+    @media (max-width: #{$responsive400}) {
         @content;
     }
 }
 
-@mixin mobileScreen350 {
-    @media (max-width: #{$mobileScreen350}) {
+@mixin responsive350 {
+    @media (max-width: #{$responsive350}) {
         @content;
     }
 }
@@ -78,14 +89,20 @@ body {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
-        font-family: "Montserrat Light";
+        transform: $center;
+        font-family: $textLight;
         font-size: 14px;
         opacity: 0;
+        text-align: center;
+        width: 100%;
         animation: quoteText 3s ease forwards;
 
         .highlighted {
-            font-family: "Montserrat Light";
+            font-family: $textLight;
+        }
+
+        @include responsive1920 {
+            font-size: 26px;
         }
     }
 
@@ -138,6 +155,22 @@ body {
         color: color(highlightColor);
         font-family: $highlighted;
     }
+
+    
+    @include responsive1920 {
+        p, a {
+            font-size: 22px;
+        }
+
+        .btn-link {
+            width: 140px;
+            font-size: 20px;
+        }
+
+        input, textarea, #submitBtn {
+            font-size: 18px;
+        }
+    }
 }
 
 // NAVIGATION (LINKS)
@@ -154,7 +187,7 @@ nav {
         background: none;
     }
 
-    @include mobileScreen500 {
+    @include responsive550 {
         justify-content: center;
         margin: 0;
     }
@@ -204,7 +237,7 @@ nav.active__nav {
         z-index: -1;
         transition: 0.5s ease;
 
-        @include mobileScreen500 {
+        @include responsive550 {
             -webkit-clip-path: polygon(50% 0%, 100% 0, 53% 77%, 0 100%, 0 0);
             clip-path: polygon(50% 0%, 100% 0, 100% 77%, 0 100%, 0 0);
         }
@@ -227,7 +260,7 @@ nav.active__nav {
             color: color(bgColor);
         }
 
-        @include mobileScreen500 {
+        @include responsive550 {
             flex-basis: 100%;
             text-align: center;
 
@@ -246,15 +279,24 @@ nav.active__nav {
             font-family: $title;
             color: color(highlightColor);
         }
+
+        @include responsive400 {
+            font-size: 40px;
+        }
     }
 
     p {
         margin: 5px 0 20px 0;
-        // font-family: "Montserrat SemiBold";
 
         .highlighted {
             color: color(highlightColor);
-            font-family: "Montserrat SemiBold";
+            font-family: $textSemiBold;
+        }
+
+        
+        @include responsive550 {
+            padding: 10px;
+            font-size: 14px;   
         }
     }
 
@@ -273,6 +315,10 @@ nav.active__nav {
         left: 50%;
         bottom: 25px;
         opacity: 0;
+
+        @include responsive1920 {
+            bottom: 60px;
+        }
     }
 
     #mouse__scroll.display__mouse--scroll{
@@ -338,6 +384,14 @@ nav.active__nav {
         color: color(textColor);
     }
     
+    @include responsive400 {
+        h1 {
+            font-size: 40px;
+        }
+        p {
+            padding: 10px;
+        }
+    }
 }
 
 #skills.skills--active {
@@ -348,7 +402,7 @@ nav.active__nav {
 
 // PROJECTS SLIDER
 .glide {
-    margin-top: 150px;
+    margin-top: 100px;
     text-align: center;
     opacity: 0;
     transform: translateY(50px);
@@ -386,6 +440,15 @@ nav.active__nav {
     #more__projects {
         margin: 50px 0 0 0;
         padding: 5px;
+    }
+
+    @include responsive400 {
+        h1 {
+            font-size: 40px;
+        }
+        p {
+            padding: 10px;
+        }
     }
 }
 
@@ -452,11 +515,11 @@ nav.active__nav {
         text-align: center;
         margin: 10px 0px;
 
-        @include mobileScreen400 {
+        @include responsive400 {
             font-size: 20px;
         }
 
-        @include mobileScreen350 {
+        @include responsive350 {
             font-size: 18px;
         }
 
@@ -469,8 +532,8 @@ nav.active__nav {
     .project__image {
         width: 500px;
 
-        @include mobileScreen500 {
-            width: 100%;
+        @include responsive550 {
+            width: 90%;
         }
     }
 
@@ -485,11 +548,17 @@ nav.active__nav {
         .project__links {
             display: flex;
             justify-content: space-evenly;
-            font-family: "Montserrat SemiBold";
+            font-family: $textSemiBold;
 
             a:hover {
                 background-color: color(textColor);
                 color: color(bgColor);
+            }
+        }
+
+        @include responsive400 {
+            p {
+                padding: 10px;
             }
         }
     }
@@ -614,6 +683,16 @@ nav.active__nav {
         font-size: 14px;
         text-align: center;
     }
+
+    @include responsive400 {
+        h1 {
+            font-size: 40px;
+        }
+        p {
+            padding: 10px;
+            font-size: 14px;
+        }
+    }
 }
 
 #contact.contact--active {
@@ -648,8 +727,7 @@ footer {
 
     #created--by {
         grid-area: createdBy;
-        font-size: 12px;
-        align-self: flex-end;
+        font-size: 10px;
     }
 
     #page--links {
