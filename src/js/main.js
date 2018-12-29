@@ -9,6 +9,51 @@ const glide = new Glide('.glide', {
 
 glide.mount();
 
+// EMAIL SERVICE
+(function(){
+    emailjs.init("user_UhBArauY2MWSdZZhQpUeI")
+})()
+const submitBtn = document.querySelector("#submitBtn");
+const mailError = document.querySelector("#mail--error");
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Input fields
+    const name = document.querySelector("#name_input");
+    const email = document.querySelector("#email_input");
+    const subject = document.querySelector("#subject_input");
+    const message = document.querySelector("#message_input");
+
+    // Template parameters for the email
+    const templateParams = {
+        user_name: this.user_name.value,
+        user_email: this.user_email.value,
+        mail_subject: this.mail_subject.value,
+        text: this.text.value
+    }
+
+    // Check the fields for value, if there is, send, if not, decline
+    if(name.value && email.value && subject.value && message.value) {
+        // Send the email and return a promise
+        emailjs.send('contact_service', 'contact_form', templateParams)
+        .then( () => {
+            // If successfull
+            submitBtn.innerHTML = `Message Sent! <i class="material-icons">check_circle_outline</i>`;
+        })
+        .catch(err => {
+            // If it failed
+            submitBtn.innerHTML = `Something went wrong... <i class="material-icons">error_outline</i>`
+        });
+    } else {
+        mailError.textContent = `Please fill out all fields before clicking send.`;
+
+        setTimeout(() => {
+            mailError.textContent = "";
+        }, 3000);
+    }
+});
+
 // Display mouse scroll down animation
 const mouseScroll = document.querySelector("#mouse__scroll");
 let seconds = 0;
@@ -86,17 +131,6 @@ function displayElements() {
     }, 50);
 }
 
-// SMOOTH SCROLL TO SECTION
-// const navLinks = nav.querySelector('a');
-// navLinks.forEach(link => {
-//     if(link.id === 'projects_top') {
-//         window.scroll({
-//             top: 800,
-//             left: 0,
-//             behavior: 'smooth'
-//         });
-//     }
-// })
 const projectsLink = document.querySelector("#projects_top");
 projectsLink.addEventListener("click", () => {
     window.scroll({
@@ -113,3 +147,5 @@ contactLink.addEventListener("click", () => {
         behavior: 'smooth'
     })
 })
+
+
