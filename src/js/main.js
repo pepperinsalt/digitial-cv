@@ -3,8 +3,10 @@ const glide = new Glide('.glide', {
     type: 'carousel',
     startAt: 0,
     perView: 1,
-    autoplay: 5000,
-    hoverpause: false
+    autoplay: 10000,
+    animationDuration: 2000,
+    hoverpause: true,
+    centered: true
 })
 glide.mount();
 
@@ -39,7 +41,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     // Check the fields for value, if there is, send, if not, decline
     if(name.value && email.value && subject.value && message.value) {
         // Send the email and return a promise
-        emailjs.send('contact_service', 'contact_form', templateParams)
+        emailjs.send('portfolio_service', 'portfolio_form', templateParams)
         .then( () => {
             // If send message was successfull:
 
@@ -55,15 +57,20 @@ document.getElementById('contact-form').addEventListener('submit', function(even
             // Reset button to default text
             setTimeout(() => {
                 submitBtn.innerHTML = 'Send message <i class="material-icons">email</i></button>'
-            }, 2000);
+            }, 3000);
         })
         .catch(() => {
-            // If sending message failed:
-
+            // SENDING MESSAGE FAILED
             // Change the button message
             submitBtn.innerHTML = `Something went wrong... <i class="material-icons">error_outline</i>`
 
+            // Clear fields and reset button text
             setTimeout(() => {
+                name.value = '';
+                email.value = '';
+                subject.value = '';
+                message.value = '';
+
                 submitBtn.innerHTML = 'Send message <i class="material-icons">email</i></button>';
             }, 3000);
         });
@@ -155,22 +162,34 @@ function displayElements() {
 // Scroll to projects section when clicked "projects" link
 const projectsLink = document.querySelectorAll(".projects");
 projectsLink.forEach(project => project.addEventListener("click", e => {
-    window.scroll({
-        top: 900,
-        left: 0,
-        behavior: 'smooth'
-    })
+    if(window.pageYOffset === 0) {
+        window.scrollBy({
+            top: window.innerHeight * 1.5,
+            behavior: 'smooth'
+        })
+    } else if (window.pageYOffset >= 100) {
+        window.scrollBy({
+            top: -window.innerHeight * 2,
+            behavior: 'smooth'
+        })
+    }
     e.preventDefault();
 }))
 
 // Scroll to contact section when clicked "contact" link
 const contactLink = document.querySelectorAll(".contacts");
 contactLink.forEach(contact => contact.addEventListener("click", e => {
-    window.scroll({
-        top:1500,
-        left: 0,
-        behavior: 'smooth'
-    })
+    if(window.pageYOffset === 0) {
+        window.scrollBy({
+            top: window.innerHeight * 3.5,
+            behavior: 'smooth'
+        })
+    } else if (window.pageYOffset >= 100) {
+        window.scrollBy({
+            top: -window.innerHeight * 0.25,
+            behavior: 'smooth'
+        })
+    }
     e.preventDefault();
 }))
 
@@ -179,7 +198,6 @@ const aboutLink = document.querySelector(".about");
 aboutLink.addEventListener("click", e => {
     window.scroll({
         top: 0,
-        left: 0,
         behavior: 'smooth'
     })
     e.preventDefault();
