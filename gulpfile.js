@@ -22,7 +22,7 @@ gulp.task('compileSCSS', () => {
 
 // Convert ES6+ code to ES5 using Babel and minify it
 gulp.task('convertJS', () => {
-    gulp.src('./src/js/*.js')
+    return gulp.src('./src/js/*.js')
         .pipe(babel({
             presets: ['@babel/env']
         }))
@@ -31,11 +31,11 @@ gulp.task('convertJS', () => {
                keepClassName: true
            }
        }))
-       .pipe(gulp.dest('./dist/js/'))
+       .pipe(gulp.dest('./dist/js/'));
 })
 
 // Watch "compileSCSS" & "convertJS"
 gulp.task('watch', () => {
-    gulp.watch('./src/js/*.js', gulp.series('convertJS'));
-    gulp.watch('./src/scss/*.scss', gulp.series('compileSCSS'));
+    gulp.watch(['./src/js/**/*.js'], gulp.series('convertJS'));
+    gulp.watch(['./src/scss/*.scss'], gulp.series('compileSCSS'));
 })
