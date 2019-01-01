@@ -1,8 +1,8 @@
 // Colors
 $colors: (
     bgColor: #000026,
-    textColor: #04fbff,
-    highlightColor: #f5f5f5
+    textColor: #00ecf0,
+    highlightColor: #f0f0f0
 );
 
 @function color($colorName) {
@@ -42,6 +42,12 @@ $responsive350: 350px;
 
 @mixin responsive1920 {
     @media (min-width: #{$responsive1920}) {
+        @content;
+    }
+}
+
+@mixin responsiveTablets {
+    @media (max-width: 1024px) {
         @content;
     }
 }
@@ -373,6 +379,99 @@ nav.active__nav {
     transform: translateY(50px);
     transition: 1s;
 
+    * {
+        margin: 20px 0;
+    }
+
+    #icons {
+        margin-bottom: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 10px;
+
+        a {
+            position: relative;
+            background: transparent;
+        }
+
+        .tooltip {
+            display: none;
+            opacity: 0;
+            min-width: 90px;
+            padding: 5px;
+            color: color(bgColor);
+            font-family: $textSemiBold;
+            font-size: 14px;
+
+            border-radius: 2px;
+        }
+
+        a:hover .tooltip {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: absolute;
+            left: -25px;
+            bottom: -35px;
+            background-color: color(highlightColor);
+            animation: tooltip 0.35s ease-in-out forwards;
+        }
+
+        .tooltip::before {
+            content: '';
+            width: 15px;
+            height: 15px;
+            z-index: -1;
+            background-color: color(highlightColor);
+
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+        }
+
+        * {
+            margin: 0 5px;
+        }
+
+        // Media querry to display tool tips
+        @include responsiveTablets {
+            a {
+                position: relative;
+            }
+
+            .tooltip {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 1;
+                background-color: transparent;
+                min-width: 90px;
+                color: color(textColor);
+                font-size: 14px;
+                font-family: $text;
+                position: absolute;
+                left: -25px;
+                bottom: -25px;
+                animation: none;
+            }
+            .tooltip::before {
+                content: '';
+                widows: 0;
+                height: 0;
+                z-index: -1;
+                background-color: transparent;
+            }
+            
+            * {
+                margin: 15px 10px;
+            }
+        }
+    } 
+
     h1 {
         font-family: $title;
         font-size: 50px;
@@ -505,6 +604,7 @@ nav.active__nav {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: 0.3s ease;
 
     h2 {
         font-family: $title;
@@ -566,7 +666,7 @@ nav.active__nav {
 
 // CONTACT CONTAINER
 #contact {
-    margin: 50px 0;
+    margin: 80px 0;
     text-align: center;
 
     display: flex;
@@ -579,24 +679,15 @@ nav.active__nav {
     transition: 1s;
 
     h1 {
+        margin: 20px 0;
         font-family: $title;
         font-size: 50px;
         color: color(highlightColor);
     }
 
     p {
-        width: 80%;
-    }
-
-    #message {
         margin: 20px 0;
-        text-align: center;
-        width: 200px;
-    }
-
-    #message:hover {
-        background-color: color(textColor);
-        color: color(bgColor);
+        width: 80%;
     }
 
     // FORM
@@ -619,7 +710,7 @@ nav.active__nav {
             padding: 5px;
             margin: 5px 0;
             border: none;
-            border-bottom: 1px solid color(textColor);
+            border-bottom: 1px solid #04fbff40;
             background: none;
             outline: none;
             font-family: $text;
@@ -641,7 +732,7 @@ nav.active__nav {
             height: 80px;
             margin: 35px 0 10px 0;
             padding: 5px;
-            border: 1px solid color(textColor);
+            border: 1px solid #04fbff40;
             background: none;
             outline: none;
             font-family: $text;
@@ -663,10 +754,9 @@ nav.active__nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-
             width: 100%;
             padding: 5px;
-            border: 1px solid color(textColor);
+            border: 1px solid #04fbff40;
             background: color(bgColor);
             color: color(textColor);
             font-family: $highlighted;
@@ -683,6 +773,7 @@ nav.active__nav {
 
     // Mail error
     #mail--error {
+        margin: 10px 0;
         color: #e1302a;
         font-family: $text;
         font-size: 14px;
@@ -818,6 +909,14 @@ footer {
 
     100% {
         opacity: 0;
+    }
+}
+
+@keyframes tooltip {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
     }
 }
 
