@@ -3,10 +3,14 @@
 Check it out <a href="https://pecko95.github.io/Portfolio" target="_blank">here!</a>
 
 ##### Created using:
-* HTML;
-* SCSS;
-* JS;
+* HTML
+* SCSS
+* JS
 * Gulp - to optimize images, compile and minify SCSS to CSS and ES6+ javascript to ES5.
 * Photoshop
 
-Also used EmailJS to provide email sending option and Glider.js for projects carousel effect.
+Used EmailJS to provide email sending option and Glide.js for projects carousel effect.
+
+###### Bug:
+* Carousel section is offset by the browser, until browser is resized (even for 1px) or developer tools are opened.
+
