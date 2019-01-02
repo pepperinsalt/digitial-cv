@@ -63,6 +63,14 @@ body {
     body input, body textarea, body #submitBtn {
       font-size: 18px; } }
 
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+  animation-play-state: none !important; }
+
 nav {
   display: none;
   justify-content: flex-end;
@@ -93,10 +101,12 @@ nav.active__nav {
   align-items: center;
   flex-direction: column;
   opacity: 0;
-  transition: 1.5s ease; }
+  transition: 1.5s ease;
+  visibility: hidden; }
 
 #container.active__container {
-  opacity: 1; }
+  opacity: 1;
+  visibility: visible; }
 
 #main {
   display: flex;
@@ -263,9 +273,9 @@ nav.active__nav {
         opacity: 1;
         background-color: transparent;
         min-width: 90px;
-        color: #00ecf0;
+        color: #f0f0f0;
         font-size: 14px;
-        font-family: "Montserrat Regular";
+        font-family: "Montserrat Medium";
         position: absolute;
         left: -25px;
         bottom: -25px;
@@ -276,6 +286,11 @@ nav.active__nav {
         height: 0;
         z-index: -1;
         background-color: transparent; }
+      #skills #icons a:hover .tooltip {
+        left: -25px;
+        bottom: -25px;
+        background-color: transparent;
+        animation: none; }
       #skills #icons * {
         margin: 15px 10px; } }
   #skills h1 {

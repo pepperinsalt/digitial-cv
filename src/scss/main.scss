@@ -179,6 +179,15 @@ body {
     }
 }
 
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+    animation-play-state: none !important;
+}
+
 // NAVIGATION (LINKS)
 nav {
     display: none;
@@ -218,10 +227,12 @@ nav.active__nav {
     flex-direction: column;
     opacity: 0;
     transition: 1.5s ease;
+    visibility: hidden;
 }
 
 #container.active__container {
     opacity: 1;
+    visibility: visible;
 }
 
 // MAIN SECTION
@@ -450,9 +461,9 @@ nav.active__nav {
                 opacity: 1;
                 background-color: transparent;
                 min-width: 90px;
-                color: color(textColor);
+                color: color(highlightColor);
                 font-size: 14px;
-                font-family: $text;
+                font-family: $highlighted;
                 position: absolute;
                 left: -25px;
                 bottom: -25px;
@@ -464,6 +475,13 @@ nav.active__nav {
                 height: 0;
                 z-index: -1;
                 background-color: transparent;
+            }
+
+            a:hover .tooltip {
+                left: -25px;
+                bottom: -25px;
+                background-color: transparent;
+                animation: none;
             }
             
             * {
