@@ -1,3 +1,8 @@
+// Remove the preload body class preventing the animations as soon as the page loads.
+window.addEventListener("load", () => {
+    document.body.classList.remove("preload");
+})
+
 // Instantiate glide.js
 const glide = new Glide('.glide', {
     type: 'carousel',
@@ -6,7 +11,6 @@ const glide = new Glide('.glide', {
     autoplay: 10000,
     animationDuration: 2000,
     hoverpause: true,
-    centered: true
 })
 glide.mount();
 
@@ -90,17 +94,13 @@ let seconds = 0;
 
 // Count to 10 before displaying mouse to scroll down
 function showScroll() {
-    setInterval(() => {
-        seconds++;
-    
-        if(seconds >= 10) {
-            mouseScroll.classList.add('display__mouse--scroll');
+    setTimeout(() => {
+        mouseScroll.classList.add('display__mouse--scroll');
 
-            setTimeout(() => {
-                mouseScroll.classList.add('active__mouse--scroll');
-            }, 50);
-        }
-    }, 1000);
+        setTimeout(() => {
+            mouseScroll.classList.add('active__mouse--scroll');
+        }, 50);
+    }, 10000);
 }
 
 // Position of elements
@@ -112,6 +112,10 @@ const contact = document.querySelector("#contact");
 const contactYPos = contact.getBoundingClientRect().y;
 
 function hideScroll() {
+    // Display scroll only if user is at top of page
+    if(window.pageYOffset === 0) {
+        showScroll();
+    }
     // Reset the countdown seconds to 0
     seconds = 0;
 
@@ -208,3 +212,4 @@ document.addEventListener("DOMContentLoaded", showScroll)
 
 // Listen for a scroll event
 document.addEventListener("scroll", hideScroll);
+
