@@ -9,10 +9,26 @@ const glide = new Glide('.glide', {
     startAt: 0,
     perView: 1,
     autoplay: 10000,
-    animationDuration: 2000,
+    animationDuration: 1000,                
+    animationTimingFunc: "cubic-bezier(0.68, -0.55, 0.27, 1.55)",
     hoverpause: true,
 })
 glide.mount();
+
+// CAROUSEL BULLET POINTS
+const bulletPoints = document.querySelectorAll(".glide__bullet");
+bulletPoints.forEach(point => point.addEventListener("click", function() {
+    // Remove the class where it exists
+    removeActiveClass();
+
+    // Add the class to the clicked bullet point
+    point.classList.add("glide__bullet--active");
+}));
+
+function removeActiveClass() {
+    // Cycle trough each bullet point and remove the class where it exists
+    bulletPoints.forEach(point => point.classList.remove("glide__bullet--active"));
+}
 
 // Email service initialization - EmailJS
 (function(){
@@ -24,7 +40,7 @@ const submitBtn = document.querySelector("#submitBtn");
 const mailError = document.querySelector("#mail--error");
 
 // Send mail when submiting the form
-document.getElementById('contact-form').addEventListener('submit', function(event) {
+document.querySelector('#contact-form').addEventListener('submit', function(event) {
     // Prevent default behaviour
     event.preventDefault();
 
