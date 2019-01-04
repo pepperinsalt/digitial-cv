@@ -112,6 +112,11 @@ body {
         }
     }
 
+    // Line height for paragraphs
+    p {
+        line-height:  1.5em;
+    }
+
     // Links
     a {
         text-decoration: none;
@@ -179,6 +184,7 @@ body {
     }
 }
 
+// STOP THE ANIMATIONS FROM RUNNING ON PAGE LOAD
 .preload * {
     -webkit-transition: none !important;
     -moz-transition: none !important;
@@ -202,6 +208,8 @@ nav {
 
     a {
         background: none;
+        font-size: 14px;
+        font-family: $highlighted;
     }
 
     @include responsive550 {
@@ -269,12 +277,40 @@ nav.active__nav {
             height: 35px;
             font-family: "Montserrat Medium";
             letter-spacing: 1px;
-
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s ease;
             background-color: #000015;
+            color: color(textColor);
+        }
+
+        #resume::before {
+            content: "resume";
+            transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        #resume::after {
+            font-family: "Material Icons";
+            content: "\e884";
+            font-size: 24px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%) translateY(-30px);
+            transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
 
         #resume:hover {
             background-color: color(textColor);
+            transition: 0.3s ease;
+        }
+
+        #resume:hover::before {
+            transform: translateY(30px);
+        }
+
+        #resume:hover::after {
+            // transition: 0.3s ease;
+            transform: translate(-50%, 0px);
             color: color(bgColor);
         }
 
@@ -526,22 +562,24 @@ nav.active__nav {
     transition: 1s;
 
     // SLIDER BULLET POINTS
-    .glide__bullet {
-        width: 25px;
-        height: 5px;
-        border: none;
-        border-radius: 2px;
-        background-color: color(textColor);
-        outline: none;
-        cursor: pointer;
-        transition: 0.3s ease;
-    }
+    .bullet__points {
+        transition: 0.1s ease !important;
 
-    .glide__bullet--active {
-        height: 7px;
-        background-color: color(highlightColor);
+        .glide__bullet {
+            width: 25px;
+            height: 5px;
+            border: none;
+            border-radius: 2px;
+            background-color: color(textColor);
+            outline: none;
+            cursor: pointer;
+        }
+    
+        .glide__bullet--active {
+            height: 7px;
+            background-color: color(highlightColor);
+        }
     }
-
 
     h1 {
         font-family: $title;
@@ -668,9 +706,80 @@ nav.active__nav {
             justify-content: space-evenly;
             font-family: $textSemiBold;
 
-            a:hover {
+            // TEST
+            .project__btn {
+                position: relative;
+                width: 110px;
+                height: 30px;
+                padding: 5px;
+                border: 1px solid color(textColor);
+                border-radius: 1px;
+                font-size: 14px;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+            }
+
+            .project__btn:hover {
                 background-color: color(textColor);
+                transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);                
+            }
+
+            // DEMO BUTTON
+            .demo__btn::before {
+                content: "DEMO";
+                color: color(textColor);
+                transform: translateX(12px);
+                transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);                
+            }
+            .demo__btn::after {
+                font-family: "Material Icons";
+                content: "\e5cc";
+                font-size: 24px;
+                color: color(textColor);
+                transform: translateX(40px);
+                transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);                
+            }
+
+            .demo__btn:hover::before {
                 color: color(bgColor);
+                transform: translateX(6px);
+            }
+
+            .demo__btn:hover::after {
+                color: color(bgColor);
+                opacity: 1;
+                transform: translateX(10px);
+            }
+
+            // CODE BUTTON
+            .code__btn::before {
+                content: "CODE";
+                color: color(textColor);
+                transform: translateX(12px);
+                transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);                
+            }
+            .code__btn::after {
+                font-family: "Material Icons";
+                content: "\e5cc";
+                font-size: 24px;
+                color: color(textColor);
+                transform: translateX(40px);
+                opacity: 0;
+                transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);                
+            }
+            
+            .code__btn:hover::before {
+                color: color(bgColor);
+                transform: translateX(6px);
+            }
+
+            .code__btn:hover::after {
+                color: color(bgColor);
+                opacity: 1;
+                transform: translateX(10px);
             }
         }
 
@@ -708,7 +817,7 @@ nav.active__nav {
         width: 80%;
     }
 
-    // FORM
+    // CONTACT FORM
     #contact-form {
         margin: 20px 0;
         width: 400px;
@@ -723,6 +832,7 @@ nav.active__nav {
             width: 90%;
         }
 
+        // CONTACT INPUT FIELDS
         input {
             width: 100%;
             padding: 5px;
@@ -742,14 +852,20 @@ nav.active__nav {
 
         input::placeholder {
             font-family: $text;
+            color:  #04fbff80;
+            transition: 0.3s ease;
+        }
+
+        input:focus::placeholder {
             color: color(textColor);
         }
 
+        // CONTACT TEXTAREA
         textarea {
             width: 100%;
             height: 80px;
             margin: 35px 0 10px 0;
-            padding: 5px;
+            padding: 8px;
             border: 1px solid #04fbff40;
             background: none;
             outline: none;
@@ -761,13 +877,18 @@ nav.active__nav {
 
         textarea::placeholder {
             font-family: $text;
-            color: color(textColor);
+            color:  #04fbff80;
         }
 
         textarea:focus {
             border: 2px solid color(textColor);
         }
 
+        textarea:focus::placeholder {
+            color: color(textColor);
+        }
+
+        // CONTACT BUTTON
         button {
             display: flex;
             justify-content: space-between;
@@ -776,7 +897,7 @@ nav.active__nav {
             padding: 5px;
             border: 1px solid #04fbff40;
             background: color(bgColor);
-            color: color(textColor);
+            color:  color(textColor);
             font-family: $highlighted;
             outline: none;
             cursor: pointer;

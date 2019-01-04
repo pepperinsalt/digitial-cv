@@ -24,6 +24,8 @@ body {
     @media (min-width: 1920px) {
       body #quote {
         font-size: 26px; } }
+  body p {
+    line-height: 1.5em; }
   body a {
     text-decoration: none;
     color: #00ecf0;
@@ -82,7 +84,9 @@ nav {
   z-index: 2;
   transition: 3s ease; }
   nav a {
-    background: none; }
+    background: none;
+    font-size: 14px;
+    font-family: "Montserrat Medium"; }
   @media (max-width: 550px) {
     nav {
       justify-content: center;
@@ -136,9 +140,29 @@ nav.active__nav {
       height: 35px;
       font-family: "Montserrat Medium";
       letter-spacing: 1px;
-      background-color: #000015; }
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s ease;
+      background-color: #000015;
+      color: #00ecf0; }
+    #main #main-left-side #resume::before {
+      content: "resume";
+      transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+    #main #main-left-side #resume::after {
+      font-family: "Material Icons";
+      content: "\e884";
+      font-size: 24px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateY(-30px);
+      transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
     #main #main-left-side #resume:hover {
       background-color: #00ecf0;
+      transition: 0.3s ease; }
+    #main #main-left-side #resume:hover::before {
+      transform: translateY(30px); }
+    #main #main-left-side #resume:hover::after {
+      transform: translate(-50%, 0px);
       color: #000026; }
     @media (max-width: 550px) {
       #main #main-left-side {
@@ -316,18 +340,19 @@ nav.active__nav {
   opacity: 0;
   transform: translateY(50px);
   transition: 1s; }
-  .glide .glide__bullet {
-    width: 25px;
-    height: 5px;
-    border: none;
-    border-radius: 2px;
-    background-color: #00ecf0;
-    outline: none;
-    cursor: pointer;
-    transition: 0.3s ease; }
-  .glide .glide__bullet--active {
-    height: 7px;
-    background-color: #f0f0f0; }
+  .glide .bullet__points {
+    transition: 0.1s ease !important; }
+    .glide .bullet__points .glide__bullet {
+      width: 25px;
+      height: 5px;
+      border: none;
+      border-radius: 2px;
+      background-color: #00ecf0;
+      outline: none;
+      cursor: pointer; }
+    .glide .bullet__points .glide__bullet--active {
+      height: 7px;
+      background-color: #f0f0f0; }
   .glide h1 {
     font-family: "Montserrat Black";
     font-size: 50px;
@@ -412,9 +437,61 @@ nav.active__nav {
       display: flex;
       justify-content: space-evenly;
       font-family: "Montserrat SemiBold"; }
-      .glide__slide .project__info .project__links a:hover {
+      .glide__slide .project__info .project__links .project__btn {
+        position: relative;
+        width: 110px;
+        height: 30px;
+        padding: 5px;
+        border: 1px solid #00ecf0;
+        border-radius: 1px;
+        font-size: 14px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; }
+      .glide__slide .project__info .project__links .project__btn:hover {
         background-color: #00ecf0;
-        color: #000026; }
+        transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+      .glide__slide .project__info .project__links .demo__btn::before {
+        content: "DEMO";
+        color: #00ecf0;
+        transform: translateX(12px);
+        transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+      .glide__slide .project__info .project__links .demo__btn::after {
+        font-family: "Material Icons";
+        content: "\e5cc";
+        font-size: 24px;
+        color: #00ecf0;
+        transform: translateX(40px);
+        transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+      .glide__slide .project__info .project__links .demo__btn:hover::before {
+        color: #000026;
+        transform: translateX(6px); }
+      .glide__slide .project__info .project__links .demo__btn:hover::after {
+        color: #000026;
+        opacity: 1;
+        transform: translateX(10px); }
+      .glide__slide .project__info .project__links .code__btn::before {
+        content: "CODE";
+        color: #00ecf0;
+        transform: translateX(12px);
+        transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+      .glide__slide .project__info .project__links .code__btn::after {
+        font-family: "Material Icons";
+        content: "\e5cc";
+        font-size: 24px;
+        color: #00ecf0;
+        transform: translateX(40px);
+        opacity: 0;
+        transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+      .glide__slide .project__info .project__links .code__btn:hover::before {
+        color: #000026;
+        transform: translateX(6px); }
+      .glide__slide .project__info .project__links .code__btn:hover::after {
+        color: #000026;
+        opacity: 1;
+        transform: translateX(10px); }
     @media (max-width: 400px) {
       .glide__slide .project__info p {
         padding: 10px; } }
@@ -463,12 +540,15 @@ nav.active__nav {
       border-bottom: 2px solid #00ecf0; }
     #contact #contact-form input::placeholder {
       font-family: "Montserrat Regular";
+      color: #04fbff80;
+      transition: 0.3s ease; }
+    #contact #contact-form input:focus::placeholder {
       color: #00ecf0; }
     #contact #contact-form textarea {
       width: 100%;
       height: 80px;
       margin: 35px 0 10px 0;
-      padding: 5px;
+      padding: 8px;
       border: 1px solid #04fbff40;
       background: none;
       outline: none;
@@ -478,9 +558,11 @@ nav.active__nav {
       transition: 0.5s ease; }
     #contact #contact-form textarea::placeholder {
       font-family: "Montserrat Regular";
-      color: #00ecf0; }
+      color: #04fbff80; }
     #contact #contact-form textarea:focus {
       border: 2px solid #00ecf0; }
+    #contact #contact-form textarea:focus::placeholder {
+      color: #00ecf0; }
     #contact #contact-form button {
       display: flex;
       justify-content: space-between;
