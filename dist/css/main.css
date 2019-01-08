@@ -442,8 +442,9 @@ nav.active__nav {
         width: 110px;
         height: 30px;
         padding: 5px;
+        background-color: #000022;
         border: 1px solid #00ecf0;
-        border-radius: 1px;
+        border-radius: 50px;
         font-size: 14px;
         text-align: center;
         display: flex;
@@ -451,32 +452,29 @@ nav.active__nav {
         align-items: center;
         overflow: hidden; }
       .glide__slide .project__info .project__links .project__btn:hover {
-        background-color: #00ecf0;
-        transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+        transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
       .glide__slide .project__info .project__links .demo__btn::before {
         content: "DEMO";
         color: #00ecf0;
         transform: translateX(12px);
-        transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+        transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
       .glide__slide .project__info .project__links .demo__btn::after {
         font-family: "Material Icons";
         content: "\e5cc";
         font-size: 24px;
         color: #00ecf0;
         transform: translateX(40px);
-        transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+        transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
       .glide__slide .project__info .project__links .demo__btn:hover::before {
-        color: #000026;
         transform: translateX(6px); }
       .glide__slide .project__info .project__links .demo__btn:hover::after {
-        color: #000026;
         opacity: 1;
         transform: translateX(10px); }
       .glide__slide .project__info .project__links .code__btn::before {
         content: "CODE";
         color: #00ecf0;
         transform: translateX(12px);
-        transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+        transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
       .glide__slide .project__info .project__links .code__btn::after {
         font-family: "Material Icons";
         content: "\e5cc";
@@ -484,12 +482,10 @@ nav.active__nav {
         color: #00ecf0;
         transform: translateX(40px);
         opacity: 0;
-        transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+        transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
       .glide__slide .project__info .project__links .code__btn:hover::before {
-        color: #000026;
         transform: translateX(6px); }
       .glide__slide .project__info .project__links .code__btn:hover::after {
-        color: #000026;
         opacity: 1;
         transform: translateX(10px); }
     @media (max-width: 400px) {
@@ -525,44 +521,39 @@ nav.active__nav {
     @media (max-width: 400px) {
       #contact #contact-form {
         width: 90%; } }
-    #contact #contact-form input {
+    #contact #contact-form div {
       width: 100%;
-      padding: 5px;
-      margin: 5px 0;
-      border: none;
-      border-bottom: 1px solid #04fbff40;
-      background: none;
-      outline: none;
-      font-family: "Montserrat Regular";
-      color: #f0f0f0;
-      transition: 0.5s ease; }
-    #contact #contact-form input:focus {
-      border-bottom: 2px solid #00ecf0; }
-    #contact #contact-form input::placeholder {
-      font-family: "Montserrat Regular";
-      color: #04fbff80;
-      transition: 0.3s ease; }
-    #contact #contact-form input:focus::placeholder {
-      color: #00ecf0; }
-    #contact #contact-form textarea {
-      width: 100%;
-      height: 80px;
-      margin: 35px 0 10px 0;
-      padding: 8px;
-      border: 1px solid #04fbff40;
-      background: none;
-      outline: none;
-      font-family: "Montserrat Regular";
-      color: #f0f0f0;
-      text-decoration: none;
-      transition: 0.5s ease; }
-    #contact #contact-form textarea::placeholder {
-      font-family: "Montserrat Regular";
-      color: #04fbff80; }
-    #contact #contact-form textarea:focus {
-      border: 2px solid #00ecf0; }
-    #contact #contact-form textarea:focus::placeholder {
-      color: #00ecf0; }
+      position: relative; }
+      #contact #contact-form div label {
+        position: absolute;
+        top: 15px;
+        left: 4px;
+        transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        pointer-events: none;
+        font-size: 12px;
+        color: #04fbff60; }
+      #contact #contact-form div input {
+        width: 100%;
+        padding: 5px;
+        margin: 10px 0;
+        border: none;
+        border-bottom: 1px solid #04fbff40;
+        background: none;
+        outline: none;
+        font-family: "Montserrat Regular";
+        color: #f0f0f0;
+        transition: 0.5s ease; }
+      #contact #contact-form div textarea {
+        width: 100%;
+        margin: 35px 0 10px 0;
+        padding: 8px;
+        border: 1px solid #04fbff40;
+        background: none;
+        outline: none;
+        font-family: "Montserrat Regular";
+        color: #f0f0f0;
+        text-decoration: none;
+        transition: 0.5s ease; }
     #contact #contact-form button {
       display: flex;
       justify-content: space-between;
@@ -579,6 +570,16 @@ nav.active__nav {
     #contact #contact-form button:hover {
       background: #00ecf0;
       color: #000026; }
+  #contact #contact-form input:focus ~ label {
+    top: -4px;
+    color: #00ecf0; }
+  #contact #contact-form input:valid ~ label {
+    color: #00ecf0;
+    top: -4px; }
+  #contact #contact-form textarea:focus ~ label {
+    color: #00ecf0; }
+  #contact #contact-form textarea:valid ~ label {
+    color: #00ecf0; }
   #contact #mail--error {
     margin: 10px 0;
     color: #e1302a;
