@@ -281,6 +281,7 @@ nav.active__nav {
             overflow: hidden;
             transition: 0.3s ease;
             background-color: #000015;
+            border-radius: 25px;
             color: color(textColor);
         }
 
@@ -325,9 +326,12 @@ nav.active__nav {
         }
     }
 
+    // Title
     h1 {
         font-family: $title;
         font-size: 55px;
+        text-shadow: 4px 4px #04fbff30;
+        letter-spacing: 1px;
 
         .highlighted {
             font-family: $title;
@@ -595,6 +599,13 @@ nav.active__nav {
     #more__projects {
         margin: 50px 0 0 0;
         padding: 5px;
+
+        a {
+            display: inline-block;
+            font-style: italic;
+            text-decoration: underline;
+            padding-right: 2px;  
+        }
     }
 
     @include responsive400 {
@@ -693,12 +704,24 @@ nav.active__nav {
         }
     }
 
+
     .project__info {
         max-width: 500px;
         text-align: center;
 
         * {
             margin: 10px 0;
+        }
+
+        .project__tech {
+            font-size: 14px;
+            font-style: italic;
+            color: color(textColor);
+            
+            .tech {
+                font-family: $textSemiBold;
+                color: color(highlightColor);
+            }
         }
 
         .project__links {

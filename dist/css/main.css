@@ -144,6 +144,7 @@ nav.active__nav {
       overflow: hidden;
       transition: 0.3s ease;
       background-color: #000015;
+      border-radius: 25px;
       color: #00ecf0; }
     #main #main-left-side #resume::before {
       content: "resume";
@@ -174,7 +175,9 @@ nav.active__nav {
         flex-direction: column; } }
   #main h1 {
     font-family: "Montserrat Black";
-    font-size: 55px; }
+    font-size: 55px;
+    text-shadow: 4px 4px #04fbff30;
+    letter-spacing: 1px; }
     #main h1 .highlighted {
       font-family: "Montserrat Black";
       color: #f0f0f0; }
@@ -363,6 +366,11 @@ nav.active__nav {
   .glide #more__projects {
     margin: 50px 0 0 0;
     padding: 5px; }
+    .glide #more__projects a {
+      display: inline-block;
+      font-style: italic;
+      text-decoration: underline;
+      padding-right: 2px; }
   @media (max-width: 400px) {
     .glide h1 {
       font-size: 40px; }
@@ -433,6 +441,13 @@ nav.active__nav {
     text-align: center; }
     .glide__slide .project__info * {
       margin: 10px 0; }
+    .glide__slide .project__info .project__tech {
+      font-size: 14px;
+      font-style: italic;
+      color: #00ecf0; }
+      .glide__slide .project__info .project__tech .tech {
+        font-family: "Montserrat SemiBold";
+        color: #f0f0f0; }
     .glide__slide .project__info .project__links {
       display: flex;
       justify-content: space-evenly;
