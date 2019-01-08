@@ -712,8 +712,9 @@ nav.active__nav {
                 width: 110px;
                 height: 30px;
                 padding: 5px;
+                background-color: #000022;
                 border: 1px solid color(textColor);
-                border-radius: 1px;
+                border-radius: 50px;
                 font-size: 14px;
                 text-align: center;
                 display: flex;
@@ -723,8 +724,7 @@ nav.active__nav {
             }
 
             .project__btn:hover {
-                background-color: color(textColor);
-                transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);                
+                transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);                
             }
 
             // DEMO BUTTON
@@ -732,7 +732,7 @@ nav.active__nav {
                 content: "DEMO";
                 color: color(textColor);
                 transform: translateX(12px);
-                transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);                
+                transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);                
             }
             .demo__btn::after {
                 font-family: "Material Icons";
@@ -740,16 +740,14 @@ nav.active__nav {
                 font-size: 24px;
                 color: color(textColor);
                 transform: translateX(40px);
-                transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);                
+                transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);                
             }
 
             .demo__btn:hover::before {
-                color: color(bgColor);
                 transform: translateX(6px);
             }
 
             .demo__btn:hover::after {
-                color: color(bgColor);
                 opacity: 1;
                 transform: translateX(10px);
             }
@@ -759,7 +757,7 @@ nav.active__nav {
                 content: "CODE";
                 color: color(textColor);
                 transform: translateX(12px);
-                transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);                
+                transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);                
             }
             .code__btn::after {
                 font-family: "Material Icons";
@@ -768,16 +766,14 @@ nav.active__nav {
                 color: color(textColor);
                 transform: translateX(40px);
                 opacity: 0;
-                transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);                
+                transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);                
             }
             
             .code__btn:hover::before {
-                color: color(bgColor);
                 transform: translateX(6px);
             }
 
             .code__btn:hover::after {
-                color: color(bgColor);
                 opacity: 1;
                 transform: translateX(10px);
             }
@@ -833,59 +829,47 @@ nav.active__nav {
         }
 
         // CONTACT INPUT FIELDS
-        input {
+        div {
             width: 100%;
-            padding: 5px;
-            margin: 5px 0;
-            border: none;
-            border-bottom: 1px solid #04fbff40;
-            background: none;
-            outline: none;
-            font-family: $text;
-            color: color(highlightColor);
-            transition: 0.5s ease;
-        }
+            position: relative;
 
-        input:focus {
-            border-bottom: 2px solid color(textColor)
-        }
+            label {
+                position: absolute;
+                top: 15px;
+                left: 4px;
+                transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); 
+                pointer-events: none;
+                font-size: 12px;
+                color: #04fbff60;
+            }
 
-        input::placeholder {
-            font-family: $text;
-            color:  #04fbff80;
-            transition: 0.3s ease;
-        }
-
-        input:focus::placeholder {
-            color: color(textColor);
-        }
-
-        // CONTACT TEXTAREA
-        textarea {
-            width: 100%;
-            height: 80px;
-            margin: 35px 0 10px 0;
-            padding: 8px;
-            border: 1px solid #04fbff40;
-            background: none;
-            outline: none;
-            font-family: $text;
-            color: color(highlightColor);
-            text-decoration: none;
-            transition: 0.5s ease;
-        }
-
-        textarea::placeholder {
-            font-family: $text;
-            color:  #04fbff80;
-        }
-
-        textarea:focus {
-            border: 2px solid color(textColor);
-        }
-
-        textarea:focus::placeholder {
-            color: color(textColor);
+            input {
+                width: 100%;
+                padding: 5px;
+                margin: 10px 0;
+                border: none;
+                border-bottom: 1px solid #04fbff40;
+                background: none;
+                outline: none;
+                font-family: $text;
+                color: color(highlightColor);
+                transition: 0.5s ease;
+            }
+            
+            // CONTACT TEXTAREA
+            textarea {
+                width: 100%;
+                // height: 80px;
+                margin: 35px 0 10px 0;
+                padding: 8px;
+                border: 1px solid #04fbff40;
+                background: none;
+                outline: none;
+                font-family: $text;
+                color: color(highlightColor);
+                text-decoration: none;
+                transition: 0.5s ease;
+            }
         }
 
         // CONTACT BUTTON
@@ -907,6 +891,24 @@ nav.active__nav {
         button:hover {
             background: color(textColor);
             color: color(bgColor);
+        }
+    }
+
+    // When input and textarea are FOCUSED and with VALID input, style the labels
+    #contact-form {
+        input:focus ~ label {
+            top: -4px;
+            color: color(textColor);
+        }
+        input:valid ~ label {
+            color: color(textColor);
+            top: -4px;
+        }
+        textarea:focus ~ label {
+            color: color(textColor);
+        }
+        textarea:valid ~ label {
+            color: color(textColor);
         }
     }
 
