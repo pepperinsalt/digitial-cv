@@ -7,6 +7,7 @@
     <meta name="Description" content="Personal Portfolio Website">
     <meta name="author" content="Petar Stevovski">
     <meta name="keywords" content="Portfolio,Front-end developer,Web Development,JavaScript,HTML,CSS">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <title>Petar Stevovski | Portfolio</title>
     <link rel="stylesheet" href="./dist/css/glide.core.min.css">
     <link rel="stylesheet" href="./dist/fonts/fonts.css">
@@ -50,7 +51,7 @@
         <!-- SKILLS SECTION -->
         <section id="skills">
             <h1>WHAT DO I USE ?</h1>
-            <p>I have a working experience with the following tools & technologies:</p>
+            <p>I have experience with the following tools & technologies:</p>
 
             <!-- TECH ICONS -->
             <div id="icons">
@@ -222,10 +223,22 @@
             <!-- FORM TEST -->
             <form id="contact-form">
                 <input type="hidden" name="contact_number">
-                <input type="text" id="name_input" name="user_name" placeholder="Your name..." autocomplete="off">
-                <input type="text" id="subject_input" name="mail_subject" placeholder="Subject..." autocomplete="off">
-                <input type="email" id="email_input" name="user_email" placeholder="Your email address..." autocomplete="off">
-                <textarea name="text" id="message_input" spellcheck="false" placeholder="Your message..." value=""></textarea>
+                <div>
+                    <input type="text" id="name_input" name="user_name" required="" value="" autocomplete="off">
+                    <label for="name_input">Your name</label>
+                </div>
+                <div>
+                    <input type="text" id="subject_input" name="mail_subject" required="" autocomplete="off">
+                    <label for="subject_input">Subject</label>
+                </div>
+                <div>
+                    <input type="email" id="email_input" name="user_email" required="" autocomplete="off">
+                    <label for="email_input">Email address</label>
+                </div>
+                <div>
+                    <textarea name="text" id="message_input" spellcheck="false" rows="8" required="" value=""></textarea>
+                    <label for="message_input">Message</label>
+                </div>
                 <button type="submit" id="submitBtn">Send message <i class="material-icons">email</i></button>
             </form>
             <p id="mail--error"></p>
