@@ -104,21 +104,6 @@ document.querySelector('#contact-form').addEventListener('submit', function(even
     }
 });
 
-// Display mouse scroll down animation
-const mouseScroll = document.querySelector("#mouse__scroll");
-let seconds = 0;
-
-// Count to 10 before displaying mouse to scroll down
-function showScroll() {
-    setTimeout(() => {
-        mouseScroll.classList.add('display__mouse--scroll');
-
-        setTimeout(() => {
-            mouseScroll.classList.add('active__mouse--scroll');
-        }, 50);
-    }, 10000);
-}
-
 // Position of elements
 const skills = document.querySelector("#skills");
 const skillsYPos = skills.getBoundingClientRect().y - 250;
@@ -127,21 +112,31 @@ const glideYPos = glideSection.getBoundingClientRect().y - 250;
 const contact = document.querySelector("#contact");
 const contactYPos = contact.getBoundingClientRect().y;
 
-function hideScroll() {
-    // Display scroll only if user is at top of page
-    if(window.pageYOffset === 0) {
-        showScroll();
-    }
-    // Reset the countdown seconds to 0
-    seconds = 0;
+// Icon to signal the user to scroll
+const mouseScroll = document.querySelector("#mouse__scroll");
+let seconds = 0;
 
-    // Remove the class ONLY if it exists
-    if(mouseScroll.classList.contains('active__mouse--scroll')) {
-        mouseScroll.classList.remove('active__mouse--scroll');
+// Display mouse scroll down animation
+function showScroll() {
+    // After 5 seconds of staying at the top of the page, signal the user to scroll down
+    setTimeout(() => {
+        mouseScroll.classList.add('display__mouse--scroll');
 
         setTimeout(() => {
-            mouseScroll.classList.remove('display__mouse--scroll');
-        }, 1000);
+            mouseScroll.classList.add('active__mouse--scroll');
+        }, 50);
+    }, 8000);
+}
+
+function scrolling() {
+    // If the user scrolls to the top of the page & stays there, show signal to scroll
+    if(window.pageYOffset === 0) {
+        showScroll();
+    } else {
+        mouseScroll.classList.remove("active__mouse--scroll");
+        setTimeout(() => {
+            mouseScroll.classList.remove("display__mouse--scroll");
+        }, 50);
     }
 
     // Show skills section
@@ -227,5 +222,6 @@ aboutLink.addEventListener("click", e => {
 document.addEventListener("DOMContentLoaded", showScroll)
 
 // Listen for a scroll event
-document.addEventListener("scroll", hideScroll);
+document.addEventListener("scroll", scrolling);
+
 
