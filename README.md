@@ -1,4 +1,4 @@
-#### My portfolio site
+## Portfolio site
 
 Check it out <a href="https://pecko95.github.io/Portfolio" target="_blank">here!</a>
 
@@ -10,7 +10,3 @@ Check it out <a href="https://pecko95.github.io/Portfolio" target="_blank">here!
 * Photoshop
 
 Used EmailJS to provide email sending option and Glide.js for projects carousel effect.
-
-###### Bug:
-* Carousel section is offset by the browser, until browser is resized (even for 1px) or developer tools are opened.
-
